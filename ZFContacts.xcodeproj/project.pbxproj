@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4F8FA451D6EE5160094CD2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA441D6EE5160094CD2B /* main.m */; };
+		A4F8FA481D6EE5160094CD2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA471D6EE5160094CD2B /* AppDelegate.m */; };
+		A4F8FA4B1D6EE5160094CD2B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA4A1D6EE5160094CD2B /* ViewController.m */; };
+		A4F8FA4E1D6EE5160094CD2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F8FA4C1D6EE5160094CD2B /* Main.storyboard */; };
+		A4F8FA501D6EE5160094CD2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F8FA4F1D6EE5160094CD2B /* Assets.xcassets */; };
+		A4F8FA531D6EE5160094CD2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F8FA511D6EE5160094CD2B /* LaunchScreen.storyboard */; };
+		A4F8FA5C1D6EE5470094CD2B /* ZFContactsScan.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA5B1D6EE5460094CD2B /* ZFContactsScan.m */; };
+		A4F8FA5F1D6EF05F0094CD2B /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA5E1D6EF05F0094CD2B /* ContactModel.m */; };
+		A4F8FA6F1D6EF9EB0094CD2B /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA631D6EF9EB0094CD2B /* ChineseToPinyinResource.m */; };
+		A4F8FA701D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA651D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.m */; };
+		A4F8FA711D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA671D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.m */; };
+		A4F8FA721D6EF9EB0094CD2B /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA6A1D6EF9EB0094CD2B /* PinyinFormatter.m */; };
+		A4F8FA731D6EF9EB0094CD2B /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA6C1D6EF9EB0094CD2B /* PinyinHelper.m */; };
+		A4F8FA741D6EF9EB0094CD2B /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = A4F8FA6E1D6EF9EB0094CD2B /* unicode_to_hanyu_pinyin.txt */; };
+		A4F8FA921D6EFC720094CD2B /* NBAsYouTypeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA771D6EFC720094CD2B /* NBAsYouTypeFormatter.m */; };
+		A4F8FA931D6EFC720094CD2B /* NBMetadataCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA791D6EFC720094CD2B /* NBMetadataCore.m */; };
+		A4F8FA941D6EFC720094CD2B /* NBMetadataCoreMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA7B1D6EFC720094CD2B /* NBMetadataCoreMapper.m */; };
+		A4F8FA951D6EFC720094CD2B /* NBMetadataCoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA7D1D6EFC720094CD2B /* NBMetadataCoreTest.m */; };
+		A4F8FA961D6EFC720094CD2B /* NBMetadataCoreTestMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA7F1D6EFC720094CD2B /* NBMetadataCoreTestMapper.m */; };
+		A4F8FA971D6EFC720094CD2B /* NBMetadataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA811D6EFC720094CD2B /* NBMetadataHelper.m */; };
+		A4F8FA981D6EFC720094CD2B /* NBNumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA831D6EFC720094CD2B /* NBNumberFormat.m */; };
+		A4F8FA991D6EFC720094CD2B /* NBPhoneMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA851D6EFC720094CD2B /* NBPhoneMetaData.m */; };
+		A4F8FA9A1D6EFC720094CD2B /* NBPhoneMetaDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA871D6EFC720094CD2B /* NBPhoneMetaDataGenerator.m */; };
+		A4F8FA9B1D6EFC720094CD2B /* NBPhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA891D6EFC720094CD2B /* NBPhoneNumber.m */; };
+		A4F8FA9C1D6EFC720094CD2B /* NBPhoneNumberDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA8C1D6EFC720094CD2B /* NBPhoneNumberDesc.m */; };
+		A4F8FA9D1D6EFC720094CD2B /* NBPhoneNumberMetadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4F8FA8D1D6EFC720094CD2B /* NBPhoneNumberMetadata.plist */; };
+		A4F8FA9E1D6EFC720094CD2B /* NBPhoneNumberUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA8F1D6EFC720094CD2B /* NBPhoneNumberUtil.m */; };
+		A4F8FA9F1D6EFC720094CD2B /* NSArray+NBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA911D6EFC720094CD2B /* NSArray+NBAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A4F8FA401D6EE5160094CD2B /* ZFContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4F8FA441D6EE5160094CD2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4F8FA461D6EE5160094CD2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A4F8FA471D6EE5160094CD2B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A4F8FA491D6EE5160094CD2B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A4F8FA4A1D6EE5160094CD2B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4F8FA4D1D6EE5160094CD2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4F8FA4F1D6EE5160094CD2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4F8FA521D6EE5160094CD2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4F8FA541D6EE5160094CD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4F8FA5A1D6EE5460094CD2B /* ZFContactsScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFContactsScan.h; sourceTree = "<group>"; };
+		A4F8FA5B1D6EE5460094CD2B /* ZFContactsScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFContactsScan.m; sourceTree = "<group>"; };
+		A4F8FA5D1D6EF05F0094CD2B /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
+		A4F8FA5E1D6EF05F0094CD2B /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactModel.m; sourceTree = "<group>"; };
+		A4F8FA621D6EF9EB0094CD2B /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
+		A4F8FA631D6EF9EB0094CD2B /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
+		A4F8FA641D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanyuPinyinOutputFormat.h; sourceTree = "<group>"; };
+		A4F8FA651D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanyuPinyinOutputFormat.m; sourceTree = "<group>"; };
+		A4F8FA661D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin4Cocoa.h"; sourceTree = "<group>"; };
+		A4F8FA671D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin4Cocoa.m"; sourceTree = "<group>"; };
+		A4F8FA681D6EF9EB0094CD2B /* PinYin4Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinYin4Objc.h; sourceTree = "<group>"; };
+		A4F8FA691D6EF9EB0094CD2B /* PinyinFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinFormatter.h; sourceTree = "<group>"; };
+		A4F8FA6A1D6EF9EB0094CD2B /* PinyinFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinFormatter.m; sourceTree = "<group>"; };
+		A4F8FA6B1D6EF9EB0094CD2B /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
+		A4F8FA6C1D6EF9EB0094CD2B /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
+		A4F8FA6E1D6EF9EB0094CD2B /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		A4F8FA761D6EFC720094CD2B /* NBAsYouTypeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBAsYouTypeFormatter.h; sourceTree = "<group>"; };
+		A4F8FA771D6EFC720094CD2B /* NBAsYouTypeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBAsYouTypeFormatter.m; sourceTree = "<group>"; };
+		A4F8FA781D6EFC720094CD2B /* NBMetadataCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCore.h; sourceTree = "<group>"; };
+		A4F8FA791D6EFC720094CD2B /* NBMetadataCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCore.m; sourceTree = "<group>"; };
+		A4F8FA7A1D6EFC720094CD2B /* NBMetadataCoreMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCoreMapper.h; sourceTree = "<group>"; };
+		A4F8FA7B1D6EFC720094CD2B /* NBMetadataCoreMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCoreMapper.m; sourceTree = "<group>"; };
+		A4F8FA7C1D6EFC720094CD2B /* NBMetadataCoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCoreTest.h; sourceTree = "<group>"; };
+		A4F8FA7D1D6EFC720094CD2B /* NBMetadataCoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCoreTest.m; sourceTree = "<group>"; };
+		A4F8FA7E1D6EFC720094CD2B /* NBMetadataCoreTestMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataCoreTestMapper.h; sourceTree = "<group>"; };
+		A4F8FA7F1D6EFC720094CD2B /* NBMetadataCoreTestMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataCoreTestMapper.m; sourceTree = "<group>"; };
+		A4F8FA801D6EFC720094CD2B /* NBMetadataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBMetadataHelper.h; sourceTree = "<group>"; };
+		A4F8FA811D6EFC720094CD2B /* NBMetadataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBMetadataHelper.m; sourceTree = "<group>"; };
+		A4F8FA821D6EFC720094CD2B /* NBNumberFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNumberFormat.h; sourceTree = "<group>"; };
+		A4F8FA831D6EFC720094CD2B /* NBNumberFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNumberFormat.m; sourceTree = "<group>"; };
+		A4F8FA841D6EFC720094CD2B /* NBPhoneMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneMetaData.h; sourceTree = "<group>"; };
+		A4F8FA851D6EFC720094CD2B /* NBPhoneMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneMetaData.m; sourceTree = "<group>"; };
+		A4F8FA861D6EFC720094CD2B /* NBPhoneMetaDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneMetaDataGenerator.h; sourceTree = "<group>"; };
+		A4F8FA871D6EFC720094CD2B /* NBPhoneMetaDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneMetaDataGenerator.m; sourceTree = "<group>"; };
+		A4F8FA881D6EFC720094CD2B /* NBPhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumber.h; sourceTree = "<group>"; };
+		A4F8FA891D6EFC720094CD2B /* NBPhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumber.m; sourceTree = "<group>"; };
+		A4F8FA8A1D6EFC720094CD2B /* NBPhoneNumberDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberDefines.h; sourceTree = "<group>"; };
+		A4F8FA8B1D6EFC720094CD2B /* NBPhoneNumberDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberDesc.h; sourceTree = "<group>"; };
+		A4F8FA8C1D6EFC720094CD2B /* NBPhoneNumberDesc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberDesc.m; sourceTree = "<group>"; };
+		A4F8FA8D1D6EFC720094CD2B /* NBPhoneNumberMetadata.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = NBPhoneNumberMetadata.plist; sourceTree = "<group>"; };
+		A4F8FA8E1D6EFC720094CD2B /* NBPhoneNumberUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPhoneNumberUtil.h; sourceTree = "<group>"; };
+		A4F8FA8F1D6EFC720094CD2B /* NBPhoneNumberUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPhoneNumberUtil.m; sourceTree = "<group>"; };
+		A4F8FA901D6EFC720094CD2B /* NSArray+NBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NBAdditions.h"; sourceTree = "<group>"; };
+		A4F8FA911D6EFC720094CD2B /* NSArray+NBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NBAdditions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4F8FA3D1D6EE5160094CD2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A4F8FA371D6EE5160094CD2B = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA421D6EE5160094CD2B /* ZFContacts */,
+				A4F8FA411D6EE5160094CD2B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4F8FA411D6EE5160094CD2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA401D6EE5160094CD2B /* ZFContacts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4F8FA421D6EE5160094CD2B /* ZFContacts */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA461D6EE5160094CD2B /* AppDelegate.h */,
+				A4F8FA471D6EE5160094CD2B /* AppDelegate.m */,
+				A4F8FA491D6EE5160094CD2B /* ViewController.h */,
+				A4F8FA4A1D6EE5160094CD2B /* ViewController.m */,
+				A4F8FA5A1D6EE5460094CD2B /* ZFContactsScan.h */,
+				A4F8FA5B1D6EE5460094CD2B /* ZFContactsScan.m */,
+				A4F8FA5D1D6EF05F0094CD2B /* ContactModel.h */,
+				A4F8FA5E1D6EF05F0094CD2B /* ContactModel.m */,
+				A4F8FA4C1D6EE5160094CD2B /* Main.storyboard */,
+				A4F8FA4F1D6EE5160094CD2B /* Assets.xcassets */,
+				A4F8FA511D6EE5160094CD2B /* LaunchScreen.storyboard */,
+				A4F8FA541D6EE5160094CD2B /* Info.plist */,
+				A4F8FA751D6EFC720094CD2B /* libPhoneNumber */,
+				A4F8FA601D6EF9EB0094CD2B /* PinYin4Objc */,
+				A4F8FA431D6EE5160094CD2B /* Supporting Files */,
+			);
+			path = ZFContacts;
+			sourceTree = "<group>";
+		};
+		A4F8FA431D6EE5160094CD2B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA441D6EE5160094CD2B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4F8FA601D6EF9EB0094CD2B /* PinYin4Objc */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA611D6EF9EB0094CD2B /* Classes */,
+				A4F8FA6D1D6EF9EB0094CD2B /* Resources */,
+			);
+			path = PinYin4Objc;
+			sourceTree = "<group>";
+		};
+		A4F8FA611D6EF9EB0094CD2B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA621D6EF9EB0094CD2B /* ChineseToPinyinResource.h */,
+				A4F8FA631D6EF9EB0094CD2B /* ChineseToPinyinResource.m */,
+				A4F8FA641D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.h */,
+				A4F8FA651D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.m */,
+				A4F8FA661D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.h */,
+				A4F8FA671D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.m */,
+				A4F8FA681D6EF9EB0094CD2B /* PinYin4Objc.h */,
+				A4F8FA691D6EF9EB0094CD2B /* PinyinFormatter.h */,
+				A4F8FA6A1D6EF9EB0094CD2B /* PinyinFormatter.m */,
+				A4F8FA6B1D6EF9EB0094CD2B /* PinyinHelper.h */,
+				A4F8FA6C1D6EF9EB0094CD2B /* PinyinHelper.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A4F8FA6D1D6EF9EB0094CD2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA6E1D6EF9EB0094CD2B /* unicode_to_hanyu_pinyin.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4F8FA751D6EFC720094CD2B /* libPhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				A4F8FA761D6EFC720094CD2B /* NBAsYouTypeFormatter.h */,
+				A4F8FA771D6EFC720094CD2B /* NBAsYouTypeFormatter.m */,
+				A4F8FA781D6EFC720094CD2B /* NBMetadataCore.h */,
+				A4F8FA791D6EFC720094CD2B /* NBMetadataCore.m */,
+				A4F8FA7A1D6EFC720094CD2B /* NBMetadataCoreMapper.h */,
+				A4F8FA7B1D6EFC720094CD2B /* NBMetadataCoreMapper.m */,
+				A4F8FA7C1D6EFC720094CD2B /* NBMetadataCoreTest.h */,
+				A4F8FA7D1D6EFC720094CD2B /* NBMetadataCoreTest.m */,
+				A4F8FA7E1D6EFC720094CD2B /* NBMetadataCoreTestMapper.h */,
+				A4F8FA7F1D6EFC720094CD2B /* NBMetadataCoreTestMapper.m */,
+				A4F8FA801D6EFC720094CD2B /* NBMetadataHelper.h */,
+				A4F8FA811D6EFC720094CD2B /* NBMetadataHelper.m */,
+				A4F8FA821D6EFC720094CD2B /* NBNumberFormat.h */,
+				A4F8FA831D6EFC720094CD2B /* NBNumberFormat.m */,
+				A4F8FA841D6EFC720094CD2B /* NBPhoneMetaData.h */,
+				A4F8FA851D6EFC720094CD2B /* NBPhoneMetaData.m */,
+				A4F8FA861D6EFC720094CD2B /* NBPhoneMetaDataGenerator.h */,
+				A4F8FA871D6EFC720094CD2B /* NBPhoneMetaDataGenerator.m */,
+				A4F8FA881D6EFC720094CD2B /* NBPhoneNumber.h */,
+				A4F8FA891D6EFC720094CD2B /* NBPhoneNumber.m */,
+				A4F8FA8A1D6EFC720094CD2B /* NBPhoneNumberDefines.h */,
+				A4F8FA8B1D6EFC720094CD2B /* NBPhoneNumberDesc.h */,
+				A4F8FA8C1D6EFC720094CD2B /* NBPhoneNumberDesc.m */,
+				A4F8FA8D1D6EFC720094CD2B /* NBPhoneNumberMetadata.plist */,
+				A4F8FA8E1D6EFC720094CD2B /* NBPhoneNumberUtil.h */,
+				A4F8FA8F1D6EFC720094CD2B /* NBPhoneNumberUtil.m */,
+				A4F8FA901D6EFC720094CD2B /* NSArray+NBAdditions.h */,
+				A4F8FA911D6EFC720094CD2B /* NSArray+NBAdditions.m */,
+			);
+			path = libPhoneNumber;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4F8FA3F1D6EE5160094CD2B /* ZFContacts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4F8FA571D6EE5160094CD2B /* Build configuration list for PBXNativeTarget "ZFContacts" */;
+			buildPhases = (
+				A4F8FA3C1D6EE5160094CD2B /* Sources */,
+				A4F8FA3D1D6EE5160094CD2B /* Frameworks */,
+				A4F8FA3E1D6EE5160094CD2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZFContacts;
+			productName = ZFContacts;
+			productReference = A4F8FA401D6EE5160094CD2B /* ZFContacts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4F8FA381D6EE5160094CD2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = ZhaoFei;
+				TargetAttributes = {
+					A4F8FA3F1D6EE5160094CD2B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A4F8FA3B1D6EE5160094CD2B /* Build configuration list for PBXProject "ZFContacts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4F8FA371D6EE5160094CD2B;
+			productRefGroup = A4F8FA411D6EE5160094CD2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4F8FA3F1D6EE5160094CD2B /* ZFContacts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4F8FA3E1D6EE5160094CD2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4F8FA741D6EF9EB0094CD2B /* unicode_to_hanyu_pinyin.txt in Resources */,
+				A4F8FA531D6EE5160094CD2B /* LaunchScreen.storyboard in Resources */,
+				A4F8FA501D6EE5160094CD2B /* Assets.xcassets in Resources */,
+				A4F8FA9D1D6EFC720094CD2B /* NBPhoneNumberMetadata.plist in Resources */,
+				A4F8FA4E1D6EE5160094CD2B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4F8FA3C1D6EE5160094CD2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4F8FA961D6EFC720094CD2B /* NBMetadataCoreTestMapper.m in Sources */,
+				A4F8FA731D6EF9EB0094CD2B /* PinyinHelper.m in Sources */,
+				A4F8FA9F1D6EFC720094CD2B /* NSArray+NBAdditions.m in Sources */,
+				A4F8FA981D6EFC720094CD2B /* NBNumberFormat.m in Sources */,
+				A4F8FA9C1D6EFC720094CD2B /* NBPhoneNumberDesc.m in Sources */,
+				A4F8FA4B1D6EE5160094CD2B /* ViewController.m in Sources */,
+				A4F8FA481D6EE5160094CD2B /* AppDelegate.m in Sources */,
+				A4F8FA451D6EE5160094CD2B /* main.m in Sources */,
+				A4F8FA5C1D6EE5470094CD2B /* ZFContactsScan.m in Sources */,
+				A4F8FA951D6EFC720094CD2B /* NBMetadataCoreTest.m in Sources */,
+				A4F8FA9E1D6EFC720094CD2B /* NBPhoneNumberUtil.m in Sources */,
+				A4F8FA5F1D6EF05F0094CD2B /* ContactModel.m in Sources */,
+				A4F8FA9B1D6EFC720094CD2B /* NBPhoneNumber.m in Sources */,
+				A4F8FA9A1D6EFC720094CD2B /* NBPhoneMetaDataGenerator.m in Sources */,
+				A4F8FA711D6EF9EB0094CD2B /* NSString+PinYin4Cocoa.m in Sources */,
+				A4F8FA6F1D6EF9EB0094CD2B /* ChineseToPinyinResource.m in Sources */,
+				A4F8FA941D6EFC720094CD2B /* NBMetadataCoreMapper.m in Sources */,
+				A4F8FA721D6EF9EB0094CD2B /* PinyinFormatter.m in Sources */,
+				A4F8FA931D6EFC720094CD2B /* NBMetadataCore.m in Sources */,
+				A4F8FA701D6EF9EB0094CD2B /* HanyuPinyinOutputFormat.m in Sources */,
+				A4F8FA991D6EFC720094CD2B /* NBPhoneMetaData.m in Sources */,
+				A4F8FA971D6EFC720094CD2B /* NBMetadataHelper.m in Sources */,
+				A4F8FA921D6EFC720094CD2B /* NBAsYouTypeFormatter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A4F8FA4C1D6EE5160094CD2B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4F8FA4D1D6EE5160094CD2B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4F8FA511D6EE5160094CD2B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4F8FA521D6EE5160094CD2B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4F8FA551D6EE5160094CD2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A4F8FA561D6EE5160094CD2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4F8FA581D6EE5160094CD2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZFContacts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.todo.staging.ZFContacts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A4F8FA591D6EE5160094CD2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZFContacts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.todo.staging.ZFContacts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4F8FA3B1D6EE5160094CD2B /* Build configuration list for PBXProject "ZFContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4F8FA551D6EE5160094CD2B /* Debug */,
+				A4F8FA561D6EE5160094CD2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4F8FA571D6EE5160094CD2B /* Build configuration list for PBXNativeTarget "ZFContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4F8FA581D6EE5160094CD2B /* Debug */,
+				A4F8FA591D6EE5160094CD2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4F8FA381D6EE5160094CD2B /* Project object */;
+}
