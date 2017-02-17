@@ -19,5 +19,7 @@
 @property (nonatomic, copy) NSString *email;
 
 @property (nonatomic, copy) NSString *firstLetter;
+@property (nonatomic, strong, readwrite) NSString *fullName;
+@property (nonatomic, strong, readwrite) NSString *abbreviatedName;
 
 @end
