@@ -35,6 +35,7 @@ CGFloat avatarSize = 40;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -124,6 +125,7 @@ CGFloat avatarSize = 40;
 
 - (void)setContact:(ContactModel *)contact {
     _contact = contact;
+    
     if (contact.avatarImage) {
         self.avatarView.image = contact.avatarImage;
     } else {

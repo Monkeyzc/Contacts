@@ -7,6 +7,8 @@
 //
 
 #import "ContactModel.h"
+#import "HanyuPinyinOutputFormat.h"
+#import "PinyinHelper.h"
 
 @implementation ContactModel
 
@@ -30,11 +32,21 @@
     } else if (self.lastName) {
         return [self.lastName substringToIndex:1];
     } else {
-        return @"H W";
+        return @"#";
     }
 }
 
-- (NSString *)description{
-    return [NSString stringWithFormat:@"fristLetter:%@ \n firstName:%@ \n lastName:%@ \n phoneNumber:%@ \n phoneCountryCode:%@ \n email:%@ \n avatarImage:%@ \n", _firstLetter, _firstName, _lastName, _phoneNumber, _phoneCountryCode, _email, _avatarImage];
+- (NSString *)firstLetter {
+    HanyuPinyinOutputFormat *outputFormat=[[HanyuPinyinOutputFormat alloc] init];
+    [outputFormat setToneType:ToneTypeWithoutTone];
+    [outputFormat setVCharType:VCharTypeWithV];
+    [outputFormat setCaseType:CaseTypeLowercase];
+    
+    NSString *outputPinyin= [PinyinHelper toHanyuPinyinStringWithNSString:self.abbreviatedName withHanyuPinyinOutputFormat:outputFormat withNSString:@" "];
+    return [[outputPinyin substringToIndex:1] uppercaseString];
 }
+
+//- (NSString *)description{
+//    return [NSString stringWithFormat:@"fristLetter:%@ \n firstName:%@ \n lastName:%@ \n phoneNumber:%@ \n phoneCountryCode:%@ \n email:%@ \n avatarImage:%@ \n", _firstLetter, _firstName, _lastName, _phoneNumber, _phoneCountryCode, _email, _avatarImage];
+//}
 @end
