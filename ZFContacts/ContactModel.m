@@ -46,6 +46,10 @@
     return [[outputPinyin substringToIndex:1] uppercaseString];
 }
 
+- (NSString *)searchText {
+    return [NSString stringWithFormat:@"%@%@%@", self.firstName ? self.firstName : @"", self.lastName ? self.lastName : @"", self.phoneNumber ? self.phoneNumber : @""];
+}
+
 //- (NSString *)description{
 //    return [NSString stringWithFormat:@"fristLetter:%@ \n firstName:%@ \n lastName:%@ \n phoneNumber:%@ \n phoneCountryCode:%@ \n email:%@ \n avatarImage:%@ \n", _firstLetter, _firstName, _lastName, _phoneNumber, _phoneCountryCode, _email, _avatarImage];
 //}

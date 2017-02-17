@@ -10,9 +10,15 @@
 #import "ZFContactsScan.h"
 #import "ContactCell.h"
 
-@interface ContactsViewController ()
+static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
+
+@interface ContactsViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
+@property (nonatomic, strong, readwrite) UISearchBar *searchBar;
+@property (nonatomic, strong, readwrite) UISearchDisplayController *searchDisplayController;
+
 @property (nonatomic, strong) NSArray *allContacts;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *indexDic;
+@property (nonatomic, strong, readwrite) NSArray *searchResult;
 @end
 
 @implementation ContactsViewController
@@ -21,7 +27,14 @@
     [super viewDidLoad];
     
     self.title = @"Contacts";
-    self.tableView.rowHeight = 60;
+    self.tableView.sectionIndexColor = [UIColor blackColor];
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    
+    UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    self.searchBar.delegate = self;
+    [tableViewHeaderView addSubview: self.searchBar];
+    self.tableView.tableHeaderView = tableViewHeaderView;
     
     [[ZFContactsScan shareInstance] fetchAllContacts:^(NSArray *allContacts){
         
@@ -42,44 +55,85 @@
             }
         }];
         self.indexDic = indexDic;
-        [self.tableView reloadData];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
     }];
 }
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.indexDic allKeys] count];
+    return [tableView isEqual:self.tableView] ? [[self.indexDic allKeys] count] : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *key = [[self.indexDic allKeys] objectAtIndex: section];
-    NSArray *contacts = [self.indexDic objectForKey: key];
-    return contacts.count;
+    if ([tableView isEqual:self.tableView]) {
+        NSString *key = [[self.indexDic allKeys] objectAtIndex: section];
+        NSArray *contacts = [self.indexDic objectForKey: key];
+        return contacts.count;
+    }
+    return self.searchResult.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContactCell *cell = [ContactCell contactCellWithTableView:tableView];
-    NSString *key = [[self.indexDic allKeys] objectAtIndex: indexPath.section];
-    NSArray *contacts = [self.indexDic objectForKey: key];
-    cell.contact = contacts[indexPath.row];
+    if ([tableView isEqual:self.tableView]) {
+        NSString *key = [[self.indexDic allKeys] objectAtIndex: indexPath.section];
+        NSArray *contacts = [self.indexDic objectForKey: key];
+        cell.contact = contacts[indexPath.row];
+    } else {
+        cell.contact = self.searchResult[indexPath.row];
+    }
     return cell;
 }
 
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [self.indexDic allKeys];
+    return [tableView isEqual:self.tableView] ? [self.indexDic allKeys] : nil;
+}
+
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 24;
+    return [tableView isEqual:self.tableView] ? 24 : 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        return nil;
+    }
     UIView *sectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 24)];
     sectionHeaderView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
     UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width, 24)];
     [sectionHeaderView addSubview:lable];
     lable.text = [self.indexDic allKeys][section];
     return sectionHeaderView;
+}
+
+#pragma mark - UISearchBar delegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    
+    if (!self.searchDisplayController) {
+        _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+        _searchDisplayController.delegate = self;
+        _searchDisplayController.searchResultsDataSource = self;
+        _searchDisplayController.searchResultsDelegate = self;
+        _searchDisplayController.searchResultsTableView.backgroundColor = [UIColor whiteColor];
+    }
+    if (!self.searchDisplayController.active) {
+        [self.searchDisplayController setActive:YES animated:YES];
+    }
+    return YES;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"searchText CONTAINS[cd] %@", searchText];
+    NSCompoundPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[predicate]];
+    self.searchResult = [self.allContacts filteredArrayUsingPredicate:compoundPredicate];
+    [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 

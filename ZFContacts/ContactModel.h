@@ -21,5 +21,6 @@
 @property (nonatomic, copy) NSString *firstLetter;
 @property (nonatomic, strong, readwrite) NSString *fullName;
 @property (nonatomic, strong, readwrite) NSString *abbreviatedName;
+@property (nonatomic, strong, readwrite) NSString *searchText;
 
 @end

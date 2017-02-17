@@ -10,8 +10,9 @@
 #import "Masonry.h"
 #import "CustomAvatar.h"
 
-static NSString *reuseIdentifier = @"Contact_cell";
 CGFloat avatarSize = 40;
+
+static NSString *reuseIdentifier = @"contact_cell";
 
 @interface ContactCell()
 
@@ -125,11 +126,14 @@ CGFloat avatarSize = 40;
 
 - (void)setContact:(ContactModel *)contact {
     _contact = contact;
-    
     if (contact.avatarImage) {
         self.avatarView.image = contact.avatarImage;
+        self.defaultAvatarView.hidden = YES;
+        self.avatarView.hidden = NO;
     } else {
         self.defaultAvatarView.abbreviatedName = contact.abbreviatedName;
+        self.defaultAvatarView.hidden = NO;
+        self.avatarView.hidden = YES;
     }
     self.fullNameLabel.text = contact.fullName;
     self.phoneLabel.text = contact.phoneNumber;
