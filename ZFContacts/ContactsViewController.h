@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactsViewController : UITableViewController
-
+@property (nonatomic, strong, readwrite) UISearchBar *searchBar;
+@property (nonatomic, strong) id previewingContext;
 @end

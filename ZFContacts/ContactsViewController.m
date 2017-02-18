@@ -12,8 +12,7 @@
 
 static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 
-@interface ContactsViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
-@property (nonatomic, strong, readwrite) UISearchBar *searchBar;
+@interface ContactsViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UIViewControllerPreviewingDelegate>
 @property (nonatomic, strong, readwrite) UISearchDisplayController *searchDisplayController;
 
 @property (nonatomic, strong) NSArray *allContacts;
@@ -22,6 +21,14 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 @end
 
 @implementation ContactsViewController
+
+- (BOOL)isForceTouchAvailable {
+    BOOL isForceTouchAvailable = NO;
+    if ([self.traitCollection respondsToSelector:@selector(forceTouchCapability)]) {
+        isForceTouchAvailable = self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable;
+    }
+    return isForceTouchAvailable;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,6 +66,10 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
             [self.tableView reloadData];
         });
     }];
+    
+    if ([self isForceTouchAvailable]) {
+        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }
 }
 
 #pragma mark - Table view data source
@@ -135,6 +146,4 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     self.searchResult = [self.allContacts filteredArrayUsingPredicate:compoundPredicate];
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
-
-
 @end
