@@ -13,6 +13,7 @@ CGFloat customAvatarSize = 40;
 
 @interface CustomAvatar()
 
+@property (nonatomic, strong, readwrite) UIImageView *avatarView;
 @property (nonatomic, strong, readwrite) UILabel *alphabetLabel;
 @property (nonatomic, strong, readwrite) UIView *backgroundView;
 
@@ -31,6 +32,17 @@ CGFloat customAvatarSize = 40;
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self configureSubviews];
+}
+
+- (UIImageView *)avatarView {
+    if (_avatarView == nil) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.layer.cornerRadius = customAvatarSize / 2;
+        imageView.layer.masksToBounds = YES;
+        _avatarView = imageView;
+        [self addSubview:_avatarView];
+    }
+    return _avatarView;
 }
 
 - (UILabel *)alphabetLabel {
@@ -57,6 +69,14 @@ CGFloat customAvatarSize = 40;
 }
 
 - (void)configureSubviews {
+    
+    [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self);
+        make.leading.equalTo(self);
+        make.trailing.equalTo(self);
+        make.bottom.equalTo(self);
+    }];
+    
     [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self);
         make.leading.equalTo(self);
@@ -72,6 +92,17 @@ CGFloat customAvatarSize = 40;
 - (void)setAbbreviatedName:(NSString *)abbreviatedName {
     _abbreviatedName = abbreviatedName;
     self.alphabetLabel.text = abbreviatedName;
+    self.avatarView.hidden = YES;
+    self.backgroundView.hidden = NO;
+    self.alphabetLabel.hidden = NO;
+}
+
+- (void)setSourceAvatarImage:(UIImage *)sourceAvatarImage {
+    _sourceAvatarImage = sourceAvatarImage;
+    self.avatarView.image = sourceAvatarImage;
+    self.avatarView.hidden = NO;
+    self.backgroundView.hidden = YES;
+    self.alphabetLabel.hidden = YES;
 }
 
 @end

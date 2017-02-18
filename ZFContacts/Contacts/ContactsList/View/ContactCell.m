@@ -16,7 +16,6 @@ static NSString *reuseIdentifier = @"contact_cell";
 
 @interface ContactCell()
 
-@property (nonatomic, strong, readwrite) UIImageView *avatarView;
 @property (nonatomic, strong, readwrite) UILabel *fullNameLabel;
 @property (nonatomic, strong, readwrite) UILabel *phoneLabel;
 @property (nonatomic, strong, readwrite) UILabel *emailLabel;
@@ -44,17 +43,6 @@ static NSString *reuseIdentifier = @"contact_cell";
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self configureSubViews];
-}
-
-- (UIImageView *)avatarView {
-    if (_avatarView == nil) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.layer.cornerRadius = avatarSize / 2;
-        imageView.layer.masksToBounds = YES;
-        _avatarView = imageView;
-        [self.contentView addSubview:_avatarView];
-    }
-    return _avatarView;
 }
 
 - (UILabel *)fullNameLabel {
@@ -95,22 +83,13 @@ static NSString *reuseIdentifier = @"contact_cell";
 }
 
 - (void)configureSubViews {
-    
-    if (self.contact.avatarImage) {
-        [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.contentView);
-            make.leading.equalTo(self.contentView).offset(8);
-            make.width.equalTo(@(avatarSize));
-            make.height.equalTo(@(avatarSize));
-        }];
-    } else {
-        [self.defaultAvatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.contentView);
-            make.leading.equalTo(self.contentView).offset(8);
-            make.width.equalTo(@(avatarSize));
-            make.height.equalTo(@(avatarSize));
-        }];
-    }
+
+    [self.defaultAvatarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.contentView);
+        make.leading.equalTo(self.contentView).offset(8);
+        make.width.equalTo(@(avatarSize));
+        make.height.equalTo(@(avatarSize));
+    }];
     
     [self.fullNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(8);
@@ -127,13 +106,9 @@ static NSString *reuseIdentifier = @"contact_cell";
 - (void)setContact:(ContactModel *)contact {
     _contact = contact;
     if (contact.avatarImage) {
-        self.avatarView.image = contact.avatarImage;
-        self.defaultAvatarView.hidden = YES;
-        self.avatarView.hidden = NO;
+        self.defaultAvatarView.sourceAvatarImage = contact.avatarImage;
     } else {
         self.defaultAvatarView.abbreviatedName = contact.abbreviatedName;
-        self.defaultAvatarView.hidden = NO;
-        self.avatarView.hidden = YES;
     }
     self.fullNameLabel.text = contact.fullName;
     self.phoneLabel.text = contact.phoneNumber;
