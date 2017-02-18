@@ -42,6 +42,7 @@
 		A47FC68C1E57F95D00B09E74 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47FC6831E57F95D00B09E74 /* ContactCell.m */; };
 		A47FC68D1E57F95D00B09E74 /* CustomAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = A47FC6861E57F95D00B09E74 /* CustomAvatar.m */; };
 		A47FC68E1E57F95D00B09E74 /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A47FC6891E57F95D00B09E74 /* ContactModel.m */; };
+		A47FC6921E57F9EC00B09E74 /* ContactDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47FC6911E57F9EC00B09E74 /* ContactDetailsHeaderView.m */; };
 		A4F8FA451D6EE5160094CD2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA441D6EE5160094CD2B /* main.m */; };
 		A4F8FA481D6EE5160094CD2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F8FA471D6EE5160094CD2B /* AppDelegate.m */; };
 		A4F8FA501D6EE5160094CD2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F8FA4F1D6EE5160094CD2B /* Assets.xcassets */; };
@@ -126,6 +127,8 @@
 		A47FC6861E57F95D00B09E74 /* CustomAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAvatar.m; sourceTree = "<group>"; };
 		A47FC6881E57F95D00B09E74 /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
 		A47FC6891E57F95D00B09E74 /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactModel.m; sourceTree = "<group>"; };
+		A47FC6901E57F9EC00B09E74 /* ContactDetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailsHeaderView.h; sourceTree = "<group>"; };
+		A47FC6911E57F9EC00B09E74 /* ContactDetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetailsHeaderView.m; sourceTree = "<group>"; };
 		A4F8FA401D6EE5160094CD2B /* ZFContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F8FA441D6EE5160094CD2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4F8FA461D6EE5160094CD2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 			children = (
 				A47FC67C1E57F95D00B09E74 /* ContactDetailsController.h */,
 				A47FC67D1E57F95D00B09E74 /* ContactDetailsController.m */,
+				A47FC68F1E57F9CD00B09E74 /* View */,
 			);
 			path = ContactDetails;
 			sourceTree = "<group>";
@@ -325,6 +329,15 @@
 				A47FC6891E57F95D00B09E74 /* ContactModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		A47FC68F1E57F9CD00B09E74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A47FC6901E57F9EC00B09E74 /* ContactDetailsHeaderView.h */,
+				A47FC6911E57F9EC00B09E74 /* ContactDetailsHeaderView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A4F8FA371D6EE5160094CD2B = {
@@ -462,6 +475,7 @@
 				A47FC6741E574AEF00B09E74 /* PinyinFormatter.m in Sources */,
 				A47FC6581E5724DA00B09E74 /* MASConstraintMaker.m in Sources */,
 				A47FC65B1E5724DA00B09E74 /* MASViewConstraint.m in Sources */,
+				A47FC6921E57F9EC00B09E74 /* ContactDetailsHeaderView.m in Sources */,
 				A47FC6561E5724DA00B09E74 /* MASCompositeConstraint.m in Sources */,
 				A47FC64D1E5724DA00B09E74 /* NBNumberFormat.m in Sources */,
 				A47FC65A1E5724DA00B09E74 /* MASViewAttribute.m in Sources */,
