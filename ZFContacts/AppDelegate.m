@@ -23,7 +23,8 @@ static NSString *item_3_type = @"item_3_type";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] init];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ContactsViewController alloc] init]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [[ContactsViewController alloc] init]];
+    
     
     // 3D Touch
     UIApplicationShortcutIcon *icon_1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeContact];

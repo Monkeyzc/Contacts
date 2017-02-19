@@ -9,8 +9,6 @@
 #import "CustomAvatar.h"
 #import "Masonry.h"
 
-CGFloat customAvatarSize = 40;
-
 @interface CustomAvatar()
 
 @property (nonatomic, strong, readwrite) UIImageView *avatarView;
@@ -37,7 +35,6 @@ CGFloat customAvatarSize = 40;
 - (UIImageView *)avatarView {
     if (_avatarView == nil) {
         UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.layer.cornerRadius = customAvatarSize / 2;
         imageView.layer.masksToBounds = YES;
         _avatarView = imageView;
         [self addSubview:_avatarView];
@@ -61,7 +58,6 @@ CGFloat customAvatarSize = 40;
     if (_backgroundView == nil) {
         _backgroundView = [[UIView alloc] init];
         _backgroundView.backgroundColor = [UIColor colorWithRed:137/255.0 green:142/255.0 blue:153/255.0 alpha:1];
-        _backgroundView.layer.cornerRadius = customAvatarSize / 2;
         _backgroundView.layer.masksToBounds = YES;
         [self addSubview:_backgroundView];
     }
@@ -87,6 +83,9 @@ CGFloat customAvatarSize = 40;
     [self.alphabetLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
     }];
+    
+    self.avatarView.layer.cornerRadius = self.frame.size.width / 2;
+    self.backgroundView.layer.cornerRadius = self.frame.size.width / 2;
 }
 
 - (void)setAbbreviatedName:(NSString *)abbreviatedName {

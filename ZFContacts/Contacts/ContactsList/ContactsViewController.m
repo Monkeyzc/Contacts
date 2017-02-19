@@ -9,6 +9,7 @@
 #import "ContactsViewController.h"
 #import "ZFContactsScan.h"
 #import "ContactCell.h"
+#import "ContactDetailsController.h"
 
 static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 
@@ -67,9 +68,9 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
         });
     }];
     
-    if ([self isForceTouchAvailable]) {
-        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
-    }
+//    if ([self isForceTouchAvailable]) {
+//        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
+//    }
 }
 
 #pragma mark - Table view data source
@@ -122,6 +123,21 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     [sectionHeaderView addSubview:lable];
     lable.text = [self.indexDic allKeys][section];
     return sectionHeaderView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ContactModel *contact;
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        contact = self.searchResult[indexPath.row];
+    } else {
+        NSString *key = [self.indexDic allKeys][indexPath.section];
+        contact = [[self.indexDic objectForKey:key] objectAtIndex:indexPath.row];
+    }
+    if (contact) {
+        ContactDetailsController *contactDetailsVC = [[ContactDetailsController alloc] init];
+        contactDetailsVC.contact = contact;
+        [self.navigationController pushViewController: contactDetailsVC animated:YES];
+    }
 }
 
 #pragma mark - UISearchBar delegate
