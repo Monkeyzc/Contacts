@@ -67,10 +67,6 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
             [self.tableView reloadData];
         });
     }];
-    
-//    if ([self isForceTouchAvailable]) {
-//        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
-//    }
 }
 
 #pragma mark - Table view data source
@@ -95,6 +91,11 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
         cell.contact = contacts[indexPath.row];
     } else {
         cell.contact = self.searchResult[indexPath.row];
+    }
+
+    // cell 注册 3D touch
+    if ([self isForceTouchAvailable]) {
+        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
     }
     return cell;
 }
@@ -161,5 +162,30 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     NSCompoundPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[predicate]];
     self.searchResult = [self.allContacts filteredArrayUsingPredicate:compoundPredicate];
     [self.searchDisplayController.searchResultsTableView reloadData];
+}
+
+#pragma mark - UIViewControllerPreviewingDelegate
+
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    
+    ContactCell *cell = (ContactCell *)[previewingContext sourceView];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell: cell];
+    
+    NSString *key = [[self.indexDic allKeys] objectAtIndex: indexPath.section];
+    ContactModel *contact = [[self.indexDic objectForKey: key] objectAtIndex: indexPath.row];
+    
+    // 设定预览界面
+    ContactDetailsController *contactDetailsVC = [[ContactDetailsController alloc] init];
+    contactDetailsVC.contact = contact;
+    
+    //调整不被虚化的范围，按压的那个cell不被虚化（轻轻按压时周边会被虚化，再少用力展示预览，再加力跳页至设定界面）
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width,44);
+    previewingContext.sourceRect = rect;
+    
+    return contactDetailsVC;
+}
+
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self showViewController: viewControllerToCommit sender: self];
 }
 @end
