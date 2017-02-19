@@ -13,7 +13,7 @@
 
 static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 
-@interface ContactsViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UIViewControllerPreviewingDelegate>
+@interface ContactsViewController () <UISearchBarDelegate, UISearchDisplayDelegate, UIViewControllerPreviewingDelegate, UIPreviewActionItem>
 @property (nonatomic, strong, readwrite) UISearchDisplayController *searchDisplayController;
 
 @property (nonatomic, strong) NSArray *allContacts;
@@ -185,6 +185,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     return contactDetailsVC;
 }
 
+// 展示预览图
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
     [self showViewController: viewControllerToCommit sender: self];
 }
