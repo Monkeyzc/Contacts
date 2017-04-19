@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong, readwrite) ContactModel *contact;
 
-+ (instancetype)contactCellWithTableView: (UITableView *)tableView;
++ (instancetype)contactCellWithTableView: (UITableView *)tableView set3DTouchBlock:(void (^) (ContactCell *))set3DTouchBlock;
 
 @end

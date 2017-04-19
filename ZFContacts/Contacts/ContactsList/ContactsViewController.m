@@ -63,7 +63,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
             }
         }];
         self.indexDic = indexDic;
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
     }];
@@ -84,18 +84,18 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ContactCell *cell = [ContactCell contactCellWithTableView:tableView];
+    ContactCell *cell = [ContactCell contactCellWithTableView:tableView set3DTouchBlock:^(ContactCell *cell) {
+        // cell 注册 3D touch
+        if ([self isForceTouchAvailable]) {
+            self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
+        }
+    }];
     if ([tableView isEqual:self.tableView]) {
         NSString *key = [[self.indexDic allKeys] objectAtIndex: indexPath.section];
         NSArray *contacts = [self.indexDic objectForKey: key];
         cell.contact = contacts[indexPath.row];
     } else {
         cell.contact = self.searchResult[indexPath.row];
-    }
-
-    // cell 注册 3D touch
-    if ([self isForceTouchAvailable]) {
-        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
     }
     return cell;
 }

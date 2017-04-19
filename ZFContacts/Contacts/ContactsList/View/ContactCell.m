@@ -25,10 +25,13 @@ static NSString *reuseIdentifier = @"contact_cell";
 
 @implementation ContactCell
 
-+ (instancetype)contactCellWithTableView: (UITableView *)tableView {
++ (instancetype)contactCellWithTableView: (UITableView *)tableView set3DTouchBlock:(void (^) (ContactCell *))set3DTouchBlock; {
     ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
         cell = [[ContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: reuseIdentifier];
+        if (set3DTouchBlock) {
+            set3DTouchBlock(cell);
+        }
     }
     return cell;
 }
