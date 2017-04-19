@@ -18,6 +18,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 
 @property (nonatomic, strong) NSArray *allContacts;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *indexDic;
+@property (nonatomic, strong, readwrite) NSMutableArray *indexTitles;
 @property (nonatomic, strong, readwrite) NSArray *searchResult;
 @end
 
@@ -47,22 +48,27 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     [[ZFContactsScan shareInstance] fetchAllContacts:^(NSArray *allContacts){
         
         // sort array by fullName
-        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"fullName" ascending:YES selector:@selector(localizedStandardCompare:)];
+        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstLetter" ascending:YES selector:@selector(localizedStandardCompare:)];
         self.allContacts = [allContacts sortedArrayUsingDescriptors:@[descriptor]];
         
         // create index dictionary
         NSMutableDictionary *indexDic = [[NSMutableDictionary alloc] init];
+        NSMutableArray *indexTitles = [NSMutableArray array];
+        
         [self.allContacts enumerateObjectsUsingBlock:^(ContactModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSMutableArray *indexValue = [indexDic objectForKey: obj.firstLetter];
-            if (indexValue) {
-                [indexValue addObject: obj];
-            } else {
+            
+            if (!indexValue) {
                 indexValue = [[NSMutableArray alloc] init];
-                [indexValue addObject: obj];
                 [indexDic setObject: indexValue forKey: obj.firstLetter];
+                [indexTitles addObject: obj.firstLetter];
             }
+            
+            [indexValue addObject: obj];
         }];
         self.indexDic = indexDic;
+        self.indexTitles = indexTitles;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
@@ -76,7 +82,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([tableView isEqual:self.tableView]) {
-        NSString *key = [[self.indexDic allKeys] objectAtIndex: section];
+        NSString *key = self.indexTitles[section];
         NSArray *contacts = [self.indexDic objectForKey: key];
         return contacts.count;
     }
@@ -87,11 +93,11 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     ContactCell *cell = [ContactCell contactCellWithTableView:tableView set3DTouchBlock:^(ContactCell *cell) {
         // cell 注册 3D touch
         if ([self isForceTouchAvailable]) {
-            self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
+            self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView: cell];
         }
     }];
     if ([tableView isEqual:self.tableView]) {
-        NSString *key = [[self.indexDic allKeys] objectAtIndex: indexPath.section];
+        NSString *key = self.indexTitles[indexPath.section];
         NSArray *contacts = [self.indexDic objectForKey: key];
         cell.contact = contacts[indexPath.row];
     } else {
@@ -101,7 +107,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
 }
 
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [tableView isEqual:self.tableView] ? [self.indexDic allKeys] : nil;
+    return [tableView isEqual:self.tableView] ? self.indexTitles : nil;
 }
 
 #pragma mark - Table view delegate
@@ -122,7 +128,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     sectionHeaderView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
     UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width, 24)];
     [sectionHeaderView addSubview:lable];
-    lable.text = [self.indexDic allKeys][section];
+    lable.text = self.indexTitles[section];
     return sectionHeaderView;
 }
 
@@ -131,7 +137,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
         contact = self.searchResult[indexPath.row];
     } else {
-        NSString *key = [self.indexDic allKeys][indexPath.section];
+        NSString *key = self.indexTitles[indexPath.section];
         contact = [[self.indexDic objectForKey:key] objectAtIndex:indexPath.row];
     }
     if (contact) {
@@ -171,7 +177,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     ContactCell *cell = (ContactCell *)[previewingContext sourceView];
     NSIndexPath *indexPath = [self.tableView indexPathForCell: cell];
     
-    NSString *key = [[self.indexDic allKeys] objectAtIndex: indexPath.section];
+    NSString *key = [self.indexTitles objectAtIndex: indexPath.section];
     ContactModel *contact = [[self.indexDic objectForKey: key] objectAtIndex: indexPath.row];
     
     // 设定预览界面
