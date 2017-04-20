@@ -16,32 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZFContacts/Contacts/ContactsList/ContactsViewController.m"
-            timestampString = "514307533.001095"
+            filePath = "ZFContacts/ZFContactsScan.m"
+            timestampString = "514389945.884455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZFContacts/Contacts/ContactsList/ContactsViewController.m"
-            timestampString = "514307600.948535"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "-previewingContext:viewControllerForLocation:"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-fetchAllContacts_OS_9_0:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

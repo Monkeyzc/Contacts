@@ -39,6 +39,8 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     self.tableView.sectionIndexColor = [UIColor blackColor];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"设置权限" style:UIBarButtonItemStylePlain target: self action: @selector(clickSetRoot)];
+    
     UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
     self.searchBar.delegate = self;
@@ -73,6 +75,13 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
             [self.tableView reloadData];
         });
     }];
+}
+
+- (void)clickSetRoot {
+    NSURL *url = [NSURL URLWithString: UIApplicationOpenSettingsURLString];
+    if ([[UIApplication sharedApplication] canOpenURL: url]) {
+        [[UIApplication sharedApplication] openURL: url];
+    }
 }
 
 #pragma mark - Table view data source

@@ -16,7 +16,7 @@
 #import "NBPhoneNumberUtil.h"
 #import "NBPhoneNumber.h"
 
-@interface ZFContactsScan()
+@interface ZFContactsScan() <UIAlertViewDelegate>
 @property (nonatomic, strong) NSMutableArray *allContacts;
 @property (nonatomic, strong) HanyuPinyinOutputFormat *pinYinOutputFormat;
 @end
@@ -126,6 +126,9 @@
             if (callBack) {
                 callBack(self.allContacts);
             }
+        } else {
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle: @"访问联系人" message: @"设置获取联系人权限" delegate: self cancelButtonTitle: @"不允许" otherButtonTitles: @"设置", nil];
+            [alter show];
         }
     }];
 }
@@ -262,6 +265,16 @@
         phoneNumber = [phoneUtil normalizePhoneNumber:phone];
     }
     return (phoneNumber.length && phoneCountryCode.length) ? @[phoneCountryCode, phoneNumber] : nil;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"%ld", buttonIndex);
+    if (buttonIndex == 1) {
+        NSURL *url = [NSURL URLWithString: UIApplicationOpenSettingsURLString];
+        if ([[UIApplication sharedApplication] canOpenURL: url]) {
+            [[UIApplication sharedApplication] openURL: url];
+        }
+    }
 }
 
 @end
