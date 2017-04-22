@@ -28,6 +28,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     BOOL isForceTouchAvailable = NO;
     if ([self.traitCollection respondsToSelector:@selector(forceTouchCapability)]) {
         isForceTouchAvailable = self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable;
+        NSLog(@"======");
     }
     return isForceTouchAvailable;
 }
@@ -194,7 +195,7 @@ static NSString *ContactCellIdentifier = @"ContactCellIdentifier";
     contactDetailsVC.contact = contact;
     
     //调整不被虚化的范围，按压的那个cell不被虚化（轻轻按压时周边会被虚化，再少用力展示预览，再加力跳页至设定界面）
-    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width,44);
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     previewingContext.sourceRect = rect;
     
     return contactDetailsVC;
